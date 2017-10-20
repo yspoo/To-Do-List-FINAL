@@ -1,0 +1,8 @@
+<div class="col-md-6 col-md-offset-3">
+  <h2><%= @task.title %></h2>
+  <p><%= @task.description %></p>
+
+  <%= link_to "Back", tasks_path %>
+  <%= link_to "Edit", edit_task_path(@task) %>
+</div>
+<!-- <%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %> -->
