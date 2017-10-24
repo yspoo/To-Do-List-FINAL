@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_user.tasks.build  
+    @task = current_user.tasks.build
   end
 
   def create
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
     #update(task_params) so that we can access the columns input in database.
-      redirect_to task_path(@task)  
+      redirect_to task_path(@task)
       #task_path(@task) because we must specify which exact task of all the tasks.
     else
       render 'edit'
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:id])
     @task.update_attribute(:completed_at, Time.now)
-    # will update the completed_at value which will initially have a nil value until 
+    # will update the completed_at value which will initially have a nil value until
     # it is completed and it will update it with the current time. Time.now is an datetime object.
     redirect_to root_path
   end
@@ -75,6 +75,6 @@ class TasksController < ApplicationController
   end
 
   end
-  # localhost:3000/tasks/d
+
 
 end

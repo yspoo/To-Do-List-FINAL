@@ -1,0 +1,15 @@
+<h1>Tasklists #edit</h1>
+<p>Find me in app/views/lists/edit.html.erb</p>
+
+<a1> EDIT </a1>
+
+
+<%= simple_form_for @tasklist do |f| %>
+<%= f.input :name, label: 'Name:' %><br>
+<%= f.button :submit %>
+
+<% end %>
+
+<br>
+<H3><%= link_to 'Task List', tasklists_path %></H3>
+</div>

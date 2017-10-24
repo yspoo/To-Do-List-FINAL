@@ -1,0 +1,34 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+
+<a1>DETAILS</a1><br>
+Title: <%= @tasklist.name %><br><br>
+
+<h3>Tasks</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Due date</th>
+      <th colspan="4"></th>
+    </tr>
+    </div>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+
+    <tr>
+    <td><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td><%= task.status %></td>
+    <td><%= task.date %></td>
+
+      <td><%= link_to 'Edit', edit_tasklist_task_path(@list,task), { class: "badge badge-light" } %></td>
+      <td><%= link_to 'Delete', tasklist_task_path(@list,task), method: :delete, data: { confirm: 'Are you sure?' },  class: "badge badge-light"%></td>
+      </tr>
+
+    <% end %>

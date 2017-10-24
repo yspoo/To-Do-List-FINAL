@@ -4,13 +4,20 @@ Rails.application.routes.draw do
   
   # Default route
   # get ':controller(/:action(/:id))'
-  resources :tasks do
-    member do 
-      patch :complete # references the complete method we defined in the tasks controller.  
+
+
+
+  resources :tasklists do
+    resources :tasks do
+        member do 
+          patch :complete # references the complete method we defined in the tasks controller.  
+        end
     end
   end
+
+
   
-  root 'tasks#index'
+  root 'tasklists#index'
 
   devise_scope :user do 
     get '/users/sign_out' => 'devise/sessions#destroy' 
